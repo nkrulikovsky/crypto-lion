@@ -19,12 +19,12 @@ export default function EncryptDecrypt() {
   };
 
   const handleDecrypt = () => {
-    if (!encryptedData || !password) {
+    if (!data || !password) {
       alert("Please provide encrypted data and password to decrypt.");
       return;
     }
     try {
-      const bytes = CryptoJS.AES.decrypt(encryptedData, password);
+      const bytes = CryptoJS.AES.decrypt(data, password);
       const originalText = bytes.toString(CryptoJS.enc.Utf8);
       if (!originalText) throw new Error("Invalid password");
       setDecryptedData(originalText);
